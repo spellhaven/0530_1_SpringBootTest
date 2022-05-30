@@ -1,0 +1,28 @@
+plugins {
+	id 'org.springframework.boot' version '2.7.0'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+}
+
+group = 'com.spellhaven'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	
+	// JSP를 위해 아래 두 줄을 쓰고, 반드시 저장뿐만 아니라 우클릭 Gradle - Refresh도 잊지 마셈 ㅋ.
+	implementation 'javax.servlet:jstl' 
+	implementation 'org.apache.tomcat.embed:tomcat-embed-jasper'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
